@@ -18,7 +18,9 @@ public class ProductTest {
     private static final double DELTA = 0.001;
 
     //Sample sales from Question 1.1:
-    //Row 0 - Cozy Nights Monarch mattress: 25 + 18 + 20 = 63 (highest 3-month total)
+    //Rough math:  
+    //so if 
+    //Row 0 - Cozy Nights Monarch mattress: 25 + 18 + 20 = 63 (highest 3-month total)??
     //Row 1 - Restonic Barbados mattress:   15 + 10 + 12 = 37
     //Row 2 - Sealy Phuket mattress:        18 + 15 + 20 = 53
     private static final int[][] VALID_SALES_DATA = {
