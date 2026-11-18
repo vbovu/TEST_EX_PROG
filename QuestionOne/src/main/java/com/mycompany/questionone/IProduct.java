@@ -11,7 +11,7 @@ package com.mycompany.questionone;
  */
 public interface IProduct {
 
-    // API/documentation reference [1]: Interfaces — https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html
+    // API/documentation reference [1]: Interfaces: https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html
     // The assessment requires these exact PascalCase method signatures in IProduct.
     int GetTotalProductsSold();
 
