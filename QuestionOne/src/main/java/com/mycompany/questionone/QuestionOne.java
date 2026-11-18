@@ -2,6 +2,7 @@ package com.mycompany.questionone;
 
 import java.util.Scanner;
 
+
 /**
  * Console entry point for Question 1. Captures three months of mattress sales
  * across the three top-performing products into a 2D array, pairs them with the
@@ -19,9 +20,9 @@ import java.util.Scanner;
 public class QuestionOne {
 
     public static void main(String[] args) {
-        // API/documentation reference [2]: Scanner (Java Platform SE 8) — https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html
-        // API/documentation reference [3]: The try-with-resources Statement — https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
-        // One shared Scanner on System.in owned by main and closed only when the application exits.
+        // API/documentation reference [2]: Scanner (Java Platform SE 8): https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html
+        // API/documentation reference [3]: The try-with-resources Statement:  https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
+        // Here I will use one shared Scanner on System.in owned by main and closed only when the application exits.
         try (Scanner scanner = new Scanner(System.in)) {
             runApplication(scanner);
         }
@@ -42,7 +43,7 @@ public class QuestionOne {
     //End of Application Flow section
 
     //Start of Console Input Helpers section
-    // API/documentation reference [1]: Arrays — https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+    // API/documentation reference [1]: Arrays: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
     private static int[][] captureSales(Scanner scanner, String[] productNames, int monthCount) {
         int[][] sales = new int[productNames.length][monthCount];
 
@@ -62,8 +63,8 @@ public class QuestionOne {
         return sales;
     }
 
-    //Read a full line and parse it with Integer.parseInt so invalid text or leftover
-    //newlines from nextInt() can never corrupt subsequent prompts.
+    //This is so that for the purpose of Read a full line and parse it with Integer.parseInt so invalid text or leftover
+    //newlines from nextInt() can never corrupt subsequent prompts as noted from my research. 
     private static int readNonNegativeInt(Scanner scanner, String prompt) {
         while (true) {
             System.out.print(prompt);
