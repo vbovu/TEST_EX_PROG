@@ -19,12 +19,12 @@ public class PrintProduct extends Product {
 
     //Exactly 45 asterisks as required by Question 1.1.
     public static final String REPORT_DIVIDER =
-            "*********************************************";
+            "*********************************************"; //I counted the literal * on the question paper
 
     private final IProduct targetProduct;
 
     //Start of Constructor section
-    // API/documentation reference [1]: Overriding and Hiding Methods — https://docs.oracle.com/javase/tutorial/java/IandI/override.html
+    // API/documentation reference [1]: Overriding and Hiding Methods: https://docs.oracle.com/javase/tutorial/java/IandI/override.html
     public PrintProduct(String[] productNames, int[][] productSales) {
         //Delegate validation and array copying to Product via super(...).
         super(productNames, productSales);
