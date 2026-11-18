@@ -25,7 +25,7 @@ public class Product implements IProduct {
 
     public static final int DEFAULT_MONTH_COUNT = 3;
 
-    //1D array holding the three mattress names in row order (0, 1, 2).
+    //This is 1D array holding the three mattress names in row order (0, 1, 2).
     public static final String[] DEFAULT_PRODUCT_NAMES = {
         "Cozy Nights Monarch mattress",
         "Restonic Barbados mattress",
@@ -38,13 +38,13 @@ public class Product implements IProduct {
     private final int totalEntries;
 
     //Start of Constructor section
-    //Convenience constructor for unit tests or callers that supply only the 2D sales grid.
+    //This is convenience constructor for unit tests or callers that supply only the 2D sales grid.
     public Product(int[][] productSales) {
         this(DEFAULT_PRODUCT_NAMES, productSales);
     }
 
     public Product(String[] productNames, int[][] productSales) {
-        //Validate both the 1D names array and 2D sales grid before storing any state,
+        //Here I will validate both the 1D names array and 2D sales grid before storing any state,
         //so a partially constructed Product can never exist.
         String[] preparedNames = validateAndCopyNames(productNames);
         int[][] preparedSales = validateAndCopySales(productSales, preparedNames.length);
@@ -59,13 +59,13 @@ public class Product implements IProduct {
     //End of Constructor section
 
     //Start of IProduct Implementation section
-    // API/documentation reference [3]: Overriding and Hiding Methods — https://docs.oracle.com/javase/tutorial/java/IandI/override.html
-    // The assessment requires these exact PascalCase method names from IProduct.
+    // API/documentation reference [3]: Overriding and Hiding Methods: https://docs.oracle.com/javase/tutorial/java/IandI/override.html
+    // The assessment I read requires these exact PascalCase method names from IProduct.
     @Override
     public int GetTotalProductsSold() {
         int grandTotal = 0;
 
-        //Sum the precomputed 1D productTotals array ([63, 37, 53] -> 153) in O(P) time
+        //Sum the precomputed 1D productTotals array ([63, 37, 53] -> 153) in O(P) time [used calculator during my rough draft calculations to test if this O(P) time truly occured however I am not quite sure if I can attach my rough draft calculations used here] 
         //instead of re-scanning every cell of the 2D array on each call.
         for (int productTotal : productTotals) {
             grandTotal += productTotal;
@@ -93,7 +93,7 @@ public class Product implements IProduct {
         //Compare each product's 3-month total in the 1D productTotals array ([63, 37, 53]).
         //Using the row total (63) rather than an individual month cell (25) ensures the
         //winner is the product with the highest cumulative sales across all three months.
-        //Strict '>' keeps the earliest product on a tie so the result is deterministic.
+        //Strict '>' keeps the earliest product on a tie so the result is deterministic/more predictable per say.
         for (int row = 1; row < productTotals.length; row++) {
             if (productTotals[row] > highestTotal) {
                 highestTotal = productTotals[row];
@@ -101,16 +101,16 @@ public class Product implements IProduct {
             }
         }
 
-        return productNames[bestIndex] + " (" + highestTotal + ")";
+        return productNames[bestIndex];
     }
     //End of IProduct Implementation section
 
     //Start of Array Calculation and Snapshot Helpers section
-    // API/documentation reference [1]: Arrays — https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+    // API/documentation reference [1]: Arrays: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
     private static int[] computeProductTotals(int[][] salesGrid) {
         int[] rowTotals = new int[salesGrid.length];
 
-        //Outer loop walks each product row; inner loop sums that product's monthly figures.
+        //This is Outer loop walks each product row; inner loop sums that product's monthly figures.
         for (int row = 0; row < salesGrid.length; row++) {
             int rowSum = 0;
 
@@ -164,7 +164,7 @@ public class Product implements IProduct {
         return (double) GetTotalProductsSold() / productNames.length;
     }
 
-    // API/documentation reference [2]: Arrays (Java Platform SE 8) — https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html
+    // API/documentation reference [2]: Arrays (Java Platform SE 8): https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html
     // Return defensive copies so external code cannot mutate internal array state.
     public String[] getProductNames() {
         return Arrays.copyOf(productNames, productNames.length);
